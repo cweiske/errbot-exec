@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import re
 import subprocess
@@ -56,19 +57,17 @@ class Exec(BotPlugin):
         """
         Execute the commmand
         """
-        for part in ("abc"):
-            print "part: ", part
         try:
             output = subprocess.check_output(
-                [self.config['command'], str(msg), str(msg.frm)],
+                [self.config['command'], unicode(msg.body), unicode(msg.frm)],
                 stderr=subprocess.STDOUT
             )
             if len(output) > 0:
-                return output
+                return unicode(output, 'utf-8')
             else:
                 return "OK\n"
         except subprocess.CalledProcessError as err:
             if len(err.output):
-                return err.output
+                return unicode(err.output, 'utf-8')
             else:
-                return "Error" 
+                return "Error"
