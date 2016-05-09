@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-import os
-import re
-import subprocess
+import os, re, subprocess
 from errbot import BotPlugin, botcmd, re_botcmd
 from errbot.utils import ValidationException
 
@@ -29,6 +27,9 @@ class Exec(BotPlugin):
         """
         if len(name) == 0:
             raise ValidationException('Command is empty')
+
+        if os.path.exists(name):
+            return
 
         found = False
         for path in os.environ['PATH'].split(os.pathsep):
