@@ -1,8 +1,18 @@
-**********************
-Exec plugin for errbot
-**********************
+**************************
+Exec plugin for `errbot`__
+**************************
+
+__ http://errbot.io/
 
 Execute an external command when the bot is talked to.
+
+I wrote it so I can write bots in PHP, while letting `errbot`__ do
+all the connection handling and stuff.
+
+The executed script gets the message as first, and the username
+sending the message as second parameter.
+
+__ http://errbot.io/
 
 =============
 Configuration
@@ -10,5 +20,13 @@ Configuration
 In ``config.py``::
 
     EXEC = {
-        'command': u'echo'
+        'command': 'echo'
+    }
+
+Useful default errbot config settings:
+
+- Only allow some users to talk to the bot::
+
+    ACCESS_CONTROLS_DEFAULT = {
+        'allowusers': ('gbin@localhost', 'user@example.org'),
     }
