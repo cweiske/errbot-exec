@@ -14,6 +14,7 @@ sending the message as second parameter.
 
 __ http://errbot.io/
 
+
 =============
 Configuration
 =============
@@ -30,3 +31,18 @@ Useful default errbot config settings:
     ACCESS_CONTROLS_DEFAULT = {
         'allowusers': ('gbin@localhost', 'user@example.org'),
     }
+
+
+=======
+License
+=======
+``errbot-exec`` is licensed under the `AGPL v3`__ or later.
+
+__ http://www.gnu.org/licenses/agpl.html
+
+======
+Author
+======
+Written by `Christian Weiske`__, cweiske+errbot@cweiske.de
+
+__ http://cweiske.de/
