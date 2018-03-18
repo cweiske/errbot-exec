@@ -9,6 +9,5 @@ description = Execute a command when the bot is talked to
 version = 2+
 
 [Errbot]
-min = 4.0.0
-max = 4.99.99
-
+min = 5.0.0
+max = 5.99.99

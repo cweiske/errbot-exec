@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import os, re, subprocess
-from errbot import BotPlugin, botcmd, re_botcmd
-from errbot.utils import ValidationException
+from errbot import BotPlugin, botcmd, re_botcmd, ValidationException
 
 class Exec(BotPlugin):
     """
@@ -60,15 +59,15 @@ class Exec(BotPlugin):
         """
         try:
             output = subprocess.check_output(
-                [self.config['command'], unicode(msg.body), unicode(msg.frm)],
+                [self.config['command'], msg.body, str(msg.frm)],
                 stderr=subprocess.STDOUT
             )
             if len(output) > 0:
-                return unicode(output, 'utf-8')
+                return str(output, 'utf-8')
             else:
                 return "OK\n"
         except subprocess.CalledProcessError as err:
             if len(err.output):
-                return unicode(err.output, 'utf-8')
+                return str(err.output, 'utf-8')
             else:
                 return "Error"
